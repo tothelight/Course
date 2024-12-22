@@ -1,0 +1,450 @@
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Измените ширину контейнера */
+    height: 450px; /* Измените высоту контейнера */
+    margin: 0 auto; /* Центрируем видео */
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.flashcard-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* Два столбца */
+}
+
+.flashcard {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px; /* Добавляем перспективу для 3D эффекта */
+}
+
+.flashcard {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px; /* Добавляем перспективу для 3D эффекта */
+    position: relative;
+}
+
+.flashcard .front,
+.flashcard .back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden; /* Скрываем обратную сторону */
+    border-radius: 10px;
+    transition: transform 0.6s; /* Плавный переход */
+}
+
+.flashcard .front {
+    background-color: #1e293b;
+    color: white;
+    z-index: 2; /* Гарантируем отображение передней стороны */
+    transform: rotateY(0);
+    border-color: #1e293b
+}
+
+.flashcard .back {
+    background-color: #1e293b;
+    color: black;
+    transform: rotateY(180deg); /* Поворачиваем заднюю сторону */
+}
+
+.flashcard:hover .front {
+    transform: rotateY(180deg); /* Поворачиваем переднюю сторону */
+}
+
+.flashcard:hover .back {
+    transform: rotateY(360deg); /* Показываем заднюю сторону */
+}
+
+
+.flashcard:hover .front {
+    transform: rotateY(180deg); /* Поворачиваем переднюю сторону при наведении */
+}
+
+.flashcard h3 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+
+.flashcard p {
+    font-size: 20px;
+    text-align: center;
+    color: #bd7df4;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+header {
+    background-color: #0f172a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #555;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li button {
+    background: none;
+    border: none;
+    color: #e4c8ef;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+nav ul li button:hover {
+    background-color: #555;
+}
+.content {
+    padding: 20px;
+    background: linear-gradient(to right, #0f172a, #05070d);
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.content h1, .content h2 {
+    color: 
+    #e4c8ef;
+}
+.content h2 {
+    color: 
+    #e4c8ef;
+}
+#bd7df4
+.content p {
+    line-height: 1.6;
+}
+.quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.quiz-container h1 {
+    text-align: center;
+}
+.quiz-container form {
+    display: flex;
+    flex-direction: column;
+}
+.quiz-container .question {
+    margin-bottom: 20px;
+}
+.quiz-container .question h3 {
+    margin-bottom: 10px;
+}
+.quiz-container .question label {
+    display: block;
+    margin-bottom: 5px;
+    color: #818fa3;
+}
+.quiz-container button {
+    padding: 10px;  
+    background: linear-gradient(to right, #3a7ff4, #2053db);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.square-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Два столбца */
+    grid-column-gap: 30px; /* Горизонтальные отступы */
+    grid-row-gap: 30px; /* Вертикальные отступы */
+    width: 100%; /* Ширина контейнера */
+    max-width: 120000px;
+}
+.quiz-container button:hover {
+    background-color: #555;
+}
+.result {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    color:#818fa3
+}
+.square-left,
+.square-right {
+    width: 45%; /* Ширина квадратов */
+    background-color: #ffe4c4;
+    border: 2px solid #d2691e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.square-left {
+    margin-right: auto; /* Сместить влево */
+}
+.square-right {
+    margin-left: auto; /* Сместить вправо */
+}
+.square-left h1,
+.square-right h1 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.square-left p,
+.square-right p {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+}
+.square {
+    background-color: #0f172a;
+    border: 2px solid #0d1425;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-color:#1e293b
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест по HTML</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Philosopher&display=swap');
+
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+color: #333;
+line-height: 1.6;
+}
+
+header h1 {
+color:#e4c8ef
+}
+
+nav ul {
+display: flex;
+justify-content: center;
+list-style: none;
+padding: 0;
+margin: 0;
+background-color: #0f172a;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav li {
+margin: 0 15px;
+}
+
+nav button {
+font-family: 'Arial', sans-serif;
+font-size: 1.1em;
+padding: 10px 20px;
+background-color: #555;
+color: #e4c8ef;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+background-color: #555;
+}
+
+main {
+padding: 20px;
+}
+
+main h1 {
+font-family: 'Philosopher', sans-serif;
+font-size: 2em;
+margin-bottom: 20px;
+text-align: center;
+color: #5a3a89;
+}
+
+main h3, main h4 {
+font-family: 'Arial', sans-serif;
+font-weight: 700;
+color: #4e3e74;
+}
+
+main h3 {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    color: #bd7df4;
+    }
+
+main p {
+font-family: 'Arial', sans-serif;
+font-size: 1.1em;
+margin-bottom: 15px;
+color: #818fa3;
+}
+
+main h2 {
+font-size: 1.8em;
+margin-top: 30px;
+color: #555;
+}
+
+main h3 {
+font-size: 1.5em;
+margin-top: 20px;
+}
+
+main h4 {
+font-size: 1.2em;
+margin-top: 15px;
+}
+
+main ul {
+margin-top: 10px;
+padding-left: 20px;
+}
+
+main ul li {
+margin-bottom: 10px;
+list-style-type: square;
+font-family: 'Arial', sans-serif;
+font-size: 1.1em;
+color: #555;
+}
+
+footer {
+text-align: center;
+padding: 10px;
+background-color: #333;
+color: white;
+margin-top: 30px;
+}
+a {
+    color: blue; /* Задаем цвет текста ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 18px;
+}
+.site-header {
+    text-align: center; /* Центрирование текста */
+    margin-top: 50px; /* Отступ сверху */
+}
+
+/* Контейнер для всех логотипов и названий */
+.logo1-container {
+    display: flex; /* Flexbox для горизонтального расположения */
+    justify-content: center; /* Центрирование логотипов на странице */
+    gap: 30px; /* Расстояние между логотипами */
+    margin-top: 50px; /* Отступ сверху */
+}
+
+/* Контейнер для каждого логотипа и названия */
+.logo1-item {
+    display: flex; /* Flexbox для горизонтального расположения логотипа и названия */
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+/* Логотип */
+.logo1 {
+    width: 40px; /* Ширина логотипа */
+    height: auto; /* Высота логотипа */
+    margin-right: 10px; /* Отступ справа от логотипа */
+    margin-left: 625px;
+}
+.logo2-container {
+    display: flex; /* Flexbox для горизонтального расположения */
+    justify-content: center; /* Центрирование логотипов на странице */
+    gap: 30px; /* Расстояние между логотипами */
+    margin-top: 50px; /* Отступ сверху */
+}
+
+/* Контейнер для каждого логотипа и названия */
+.logo2-item {
+    display: flex; /* Flexbox для горизонтального расположения логотипа и названия */
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+/* Логотип */
+.logo2 {
+    width: 40px; /* Ширина логотипа */
+    height: auto; /* Высота логотипа */
+    margin-right: 10px; /* Отступ справа от логотипа */
+    margin-left: 545px;
+}
+.logo3-container {
+    display: flex; /* Flexbox для горизонтального расположения */
+    justify-content: center; /* Центрирование логотипов на странице */
+    gap: 30px; /* Расстояние между логотипами */
+    margin-top: 50px; /* Отступ сверху */
+}
+
+/* Контейнер для каждого логотипа и названия */
+.logo3-item {
+    display: flex; /* Flexbox для горизонтального расположения логотипа и названия */
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+/* Логотип */
+.logo3 {
+    width: 40px; /* Ширина логотипа */
+    height: auto; /* Высота логотипа */
+    margin-right: 10px; /* Отступ справа от логотипа */
+    margin-left: 475px;
+}
+
+a:hover {
+    color: red; /* Меняем цвет на красный */
+    text-decoration: underline; /* Добавляем подчеркивание */
+}
+
+/* При клике или активном состоянии */
+a:active {
+    color: green; /* Цвет ссылки при клике */
+}
+
+/* Для посещенных ссылок */
+a:visited {
+    color: purple; /* Цвет посещенных ссылок */
+}
